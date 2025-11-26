@@ -1,0 +1,42 @@
+<div th:with="url=${dish != null} ? ('/dishes/edit/' + ${dish.id}) : '/dishes/add'">
+    <form method="post" th:action="${url}">
+    <div>
+        <label for="name">Dish Name</label>
+        <input type="text"
+               id="name"
+               name="name"
+               th:value="${dish != null ? dish.name : ''}"
+               required>
+    </div>
+
+    <div>
+        <label for="cuisine">Cuisine</label>
+        <input type="text"
+               id="cuisine"
+               name="cuisine"
+               th:value="${dish != null ? dish.cuisine : ''}"
+               required>
+    </div>
+
+    <div>
+        <label for="prepTime">Preparation time</label><br/>
+        <input type="text"
+               id="prepTime"
+               name="preparationTime"
+               th:value="${dish != null ? dish.preparationTime : ''}"
+               required>
+    </div>
+
+    <div>
+        <label for="dishid">DishId</label><br/>
+        <input type="text"
+               id="dishid"
+               name="dishId"
+               th:value="${dish != null ? dish.dishId : ''}"
+               required>
+    </div>
+
+    <button id="submit" type="submit">Submit</button>
+    <a id="back" href="/dishes" type="button" class="btn btn-primary">Back to Dishes</a>
+</form>
+</div>
